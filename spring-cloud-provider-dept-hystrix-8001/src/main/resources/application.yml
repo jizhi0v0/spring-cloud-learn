@@ -1,0 +1,47 @@
+# 端口
+server:
+  port: 8001
+  context-path: /
+  
+# mtbatis配置xml
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  mapper-locations:
+  - classpath:com/jay/springcloud/dao/mapping/*.xml
+  
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/jay?useUnicode=true&characterEncoding=utf-8
+    driver-class-name: org.gjt.mm.mysql.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    username: root
+    password: 235910
+    dbcp2:
+      min-idle: 5                                           # 数据库连接池的最小维持连接数
+      initial-size: 5                                       # 初始化连接数
+      max-total: 5                                          # 最大连接数
+      max-wait-millis: 200 
+  application:
+    name: spring-cloud-dept
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/
+  instance:
+    instance-id: spring-cloud-dept-8001-hystrix
+    prefer-ip-address: true # 访问地址显示ip
+
+info:
+  app.name: spring-cloud
+  company.name: Jay
+  build.artifactId: ${project.artifactId}$
+  build.version: ${project.version}$
+
+
+
+
+  
+  
+  
+  
